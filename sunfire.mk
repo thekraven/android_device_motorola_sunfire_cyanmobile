@@ -10,7 +10,7 @@ PRODUCT_COPY_FILES += \
     device/motorola/sunfire/ueventd.sunfire.rc:root/ueventd.sunfire.rc
 
 ## (2) Also get non-open-source phone-specific aspects if available
-$(call inherit-product-if-exists, vendor/motorola/sunfire/sunfire-vendor.mk)
+$(call inherit-product-if-exists, vendor/moto/sunfire/sunfire-vendor.mk)
 
 
 # motorola helper scripts

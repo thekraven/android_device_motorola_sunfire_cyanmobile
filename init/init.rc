@@ -882,4 +882,6 @@ on property:tcmd.load_wimax="unload2"
 # turn on wimax for tcmd load cal api firmware
 on property:tcmd.load_wimax="calapi_proxy_start"
     exec /system/bin/calapi_tgtxvi0350
+	
+setprop ro.squadzone.build 1
 

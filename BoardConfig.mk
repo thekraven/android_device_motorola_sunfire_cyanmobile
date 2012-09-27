@@ -28,7 +28,7 @@ USE_CAMERA_STUB := true
 BOARD_USES_GENERIC_AUDIO := false
 
 # inherit from the proprietary version
--include vendor/motorola/sunfire/BoardConfigVendor.mk
+-include vendor/moto/sunfire/BoardConfigVendor.mk
 
 TARGET_NO_BOOTLOADER := true
 TARGET_BOOTLOADER_BOARD_NAME := sunfire
@@ -125,6 +125,8 @@ TARGET_SPECIFIC_HEADER_PATH := device/motorola/sunfire/include
 
 #EGL
 BOARD_EGL_CFG := device/motorola/sunfire/config/egl.cfg
+#HDMI
+BOARD_USES_LGE_HDMI_ROTATION := true
 
 #USB Tethering
 BOARD_CUSTOM_USB_CONTROLLER := ../../device/motorola/sunfire/UsbController.cpp
