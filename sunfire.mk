@@ -62,10 +62,11 @@ PRODUCT_LOCALES += hdpi
 
 PRODUCT_PACKAGES += \
 	Usb \
-	FM \
 	DockAudio \
-	Torch
-#        SunfireParts \
+	Torch \
+    SunfireParts \
+    hciconfig \
+	hcitool \
 
 DEVICE_PACKAGE_OVERLAYS += device/motorola/sunfire/overlay
 
@@ -91,6 +92,7 @@ PRODUCT_COPY_FILES += \
     device/motorola/sunfire/keylayout/evfwd.kl:system/usr/keylayout/evfwd.kl \
     device/motorola/sunfire/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl \
     device/motorola/sunfire/keylayout/tegra-kbc.kl:system/usr/keylayout/tegra-kbc.kl \
+	device/motorola/sunfire/keylayout/qwerty.kl:system/usr/keylayout/BTC_USB_Cordless_Mouse.kl \
     device/motorola/sunfire/keylayout/usb_keyboard_102_en_us.kl:system/usr/keylayout/usb_keyboard_102_en_us.kl \
     device/motorola/sunfire/keylayout/Motorola_Bluetooth_Wireless_Keyboard.kl:system/usr/keylayout/Motorola_Bluetooth_Wireless_Keyboard.kl \
     device/motorola/sunfire/keychars/usb_keyboard_102_en_us.kcm.bin:system/usr/keychars/usb_keyboard_102_en_us.kcm.bin \

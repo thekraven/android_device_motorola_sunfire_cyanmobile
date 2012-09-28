@@ -14,5 +14,8 @@
 
     <!-- Auto Backlight -->
     <bool name="light_decrease_enabled">true</bool>
+	
+	<!-- Whether or not to display search button settings -->
+    <bool name="has_search_button">true</bool>
 
 </resources>
