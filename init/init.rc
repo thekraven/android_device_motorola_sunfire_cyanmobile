@@ -883,5 +883,5 @@ on property:tcmd.load_wimax="unload2"
 on property:tcmd.load_wimax="calapi_proxy_start"
     exec /system/bin/calapi_tgtxvi0350
 	
-setprop ro.squadzone.build 1
+
 
