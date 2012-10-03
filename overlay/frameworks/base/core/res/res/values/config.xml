@@ -329,6 +329,14 @@
 
     <!-- Enables SIP on WIFI only -->
     <bool name="config_sip_wifi_only">false</bool>
+	
+    <integer name="config_fontsize_default_cyanmobile">11</integer> 
+    <integer name="config_iconsize_default_cyanmobile">35</integer> 
+    <integer name="config_navibarsize_default_cyanmobile">35</integer> 
+    <integer name="config_tinyexpsize_default_cyanmobile">40</integer> 
+
+	<!-- fix mms receiving -->
+	<bool name="config_mms_content_disposition_support">false</bool>
     <bool name="config_animateScreenLights">true</bool>	
     <bool name="cm_default_is_tablet">true</bool>
     <bool name="cm_default_has_soft_buttons">true</bool>

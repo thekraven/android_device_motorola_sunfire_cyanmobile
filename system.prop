@@ -125,8 +125,8 @@ persist.tegra.nvlog.level=4
 # DRM
 #persist.tegra.drmlib.asfdrm=libnvdrm.so
 #Drmdll.asfdrm=libnvdrm.so
-persist.sys.themeId=Cyanbread
-persist.sys.themePackageName=com.tmobile.theme.Cyanbread
+#persist.sys.themeId=Cyanbread
+#persist.sys.themePackageName=com.tmobile.theme.Cyanbread
 debug.composition.type=gpu
 persist.sys.composition.type=gpu
 persist.sys.ui.hw=true
@@ -139,3 +139,24 @@ ro.config.hw_menu_unlockscreen=false
 ro.service.swiqi.supported=true
 debug.sf.hw=1
 
+# Power Save tweaks
+ro.ril.disable.power.collapse=1
+pm.sleep_mode=1
+
+# Google DNS Tweak
+net.rmnet0.dns1=8.8.8.8
+net.rmnet0.dns2=8.8.4.4
+net.dns1=8.8.8.8
+net.dns2=8.8.4.4
+
+# V6 SuperCharger settings
+ro.ril.hsxpa=3
+ro.ril.gprsclass=12
+ro.ril.hep=1
+ro.ril.enable.dtm=1
+ro.ril.hsdpa.category=28
+ro.ril.enable.a53=1
+ro.ril.enable.3g.prefix=1
+ro.ril.htcmaskw1.bitmask=4294967295
+ro.ril.htcmaskw1=14449
+ro.ril.hsupa.category=9
