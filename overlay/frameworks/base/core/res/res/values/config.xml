@@ -330,7 +330,7 @@
     <!-- Enables SIP on WIFI only -->
     <bool name="config_sip_wifi_only">false</bool>
 	
-    <integer name="config_fontsize_default_cyanmobile">11</integer> 
+    <integer name="config_fontsize_default_cyanmobile">13</integer> 
     <integer name="config_iconsize_default_cyanmobile">35</integer> 
     <integer name="config_navibarsize_default_cyanmobile">35</integer> 
     <integer name="config_tinyexpsize_default_cyanmobile">40</integer> 
