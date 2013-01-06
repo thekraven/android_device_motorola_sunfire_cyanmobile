@@ -41,7 +41,7 @@ TARGET_ARCH_VARIANT_FPU := vfpv3-d16
 TARGET_CPU_SMP := true
 TARGET_HAVE_TEGRA_ERRATA_657451 := true
 
-BOARD_CUSTOM_GRAPHICS := ../../../device/motorola/sunfire/recovery/graphics.c
+#BOARD_CUSTOM_GRAPHICS := ../../../device/motorola/sunfire/recovery/graphics.c
 BOARD_CUSTOM_RECOVERY_KEYMAPPING:= ../../device/motorola/sunfire/recovery/recovery_ui.c
 BOARD_HAS_SDCARD_INTERNAL := true
 
@@ -102,6 +102,8 @@ BOARD_USES_HW_MEDIAPLUGINS := true
 
 TARGET_USES_GL_VENDOR_EXTENSIONS := true
 TARGET_ELECTRONBEAM_FRAMES := 20
+
+TARGET_BOOTANIMATION_USE_RGB565 := true
 
 # WiFi
 BOARD_WPA_SUPPLICANT_DRIVER := WEXT
