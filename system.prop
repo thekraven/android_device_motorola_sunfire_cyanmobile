@@ -129,6 +129,7 @@ persist.tegra.nvlog.level=4
 #persist.sys.themePackageName=com.tmobile.theme.Cyanbread
 debug.composition.type=gpu
 persist.sys.composition.type=gpu
+persist.sys.battery.polling=90
 persist.sys.ui.hw=true
 dalvik.vm.lockprof.threshold=500
 dalvik.vm.dexopt-flags=m=y
