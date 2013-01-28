@@ -127,6 +127,7 @@ persist.tegra.nvlog.level=4
 #Drmdll.asfdrm=libnvdrm.so
 #persist.sys.themeId=Cyanbread
 #persist.sys.themePackageName=com.tmobile.theme.Cyanbread
+debug.sf.electron_frames=12
 debug.composition.type=gpu
 persist.sys.composition.type=gpu
 persist.sys.battery.polling=90
