@@ -67,6 +67,7 @@ PRODUCT_PACKAGES += \
     SunfireParts \
     hciconfig \
 	hcitool \
+	screencap
 
 DEVICE_PACKAGE_OVERLAYS += device/motorola/sunfire/overlay
 
