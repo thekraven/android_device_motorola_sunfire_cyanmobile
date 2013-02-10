@@ -17,7 +17,7 @@ on fs
     mount ext4 /dev/block/mmcblk0p12 /system noatime nodiratime wait ro barrier=1
     mount ext4 /dev/block/mmcblk0p16 /data nosuid nodev noatime nodiratime wait barrier=1 noauto_da_alloc
     mount ext4 /dev/block/mmcblk0p15 /cache nosuid nodev noatime nodiratime wait barrier=1 noauto_da_alloc
-    mount ext3 /dev/block/mmcblk0p13 /osh nodev noatime nodiratime wait barrier=1 noauto_da_alloc
+    mount ext4 /dev/block/mmcblk0p13 /osh nodev noatime nodiratime wait barrier=1 noauto_da_alloc
 
     chmod 0755 /system/etc/12m_files_copy.sh
     exec /system/bin/logwrapper /system/bin/pds_perm_fix.sh
@@ -39,14 +39,50 @@ on post-fs
     # usbd permissions
     mkdir /data/usbd 0777 system system
 
+    # We chown/chmod /data again so because mount is run as root + defaults
+    chown system system /data
+    chmod 0771 /data
 
-
+    # Create dump dir and collect dumps.
+    # Do this before we mount cache so eventually we can use cache for
+    # storing dumps on platforms which do not have a dedicated dump partition.
+   
+    mkdir /data/dontpanic
+    chown root log /data/dontpanic
+    chmod 0750 /data/dontpanic
 
     # Collect apanic data, free resources and re-arm trigger
 
     write /proc/apanic /dev/block/mmcblk0p9
+    copy /proc/apanic_console /data/dontpanic/apanic_console
+    chown root log /data/dontpanic/apanic_console
+    chmod 0640 /data/dontpanic/apanic_console
+    copy /proc/apanic_threads /data/dontpanic/apanic_threads
+    chown root log /data/dontpanic/apanic_threads
+    chmod 0640 /data/dontpanic/apanic_threads
+
+    write /proc/apanic_console 1
+	
+    # Same reason as /data above
+    chown system cache /cache
+    chmod 0771 /cache	
+	
     chown system misc /misc
     chmod 0771 /misc
+    # This may have been created by the recovery system with odd permissions
+    chown system cache /cache/recovery
+    chmod 0770 /cache/recovery
+
+    #change permissions on vmallocinfo so we can grab it from bugreports
+    chown root log /proc/vmallocinfo
+    chmod 0440 /proc/vmallocinfo
+
+    #change permissions on kmsg & sysrq-trigger so bugreports can grab kthread stacks
+    chown root system /proc/kmsg
+    chmod 0440 /proc/kmsg
+    chown root system /proc/sysrq-trigger
+    chmod 0220 /proc/sysrq-trigger	
+
 
 
 
@@ -737,7 +773,7 @@ service btdhcpd /system/bin/dnsmasq -C /system/etc/btpan.conf
       setprop net.tcp.buffersize.gprs    4096,8192,12288,4096,8192,12288
 
       setprop ro.squadzone.build 1
-
+      setprop persist.sys.gmaps_hack 1
 
 
 
