@@ -29,16 +29,16 @@
     <!-- Flag indicating whether the surface flinger is inefficient
          at performing a blur.  Used by parts of the UI to turn off
          the blur effect where it isn't worth the performance hit. -->
-    <bool name="config_sf_slowBlur">false</bool>
+    <bool name="config_sf_slowBlur">true</bool>
     
     <!-- The duration (in milliseconds) of a short animation. -->
-    <integer name="config_shortAnimTime">150</integer>
+    <integer name="config_shortAnimTime">100</integer>
     
     <!-- The duration (in milliseconds) of a medium-length animation. -->
-    <integer name="config_mediumAnimTime">300</integer>
+    <integer name="config_mediumAnimTime">200</integer>
     
     <!-- The duration (in milliseconds) of a long animation. -->
-    <integer name="config_longAnimTime">400</integer>
+    <integer name="config_longAnimTime">200</integer>
     <!-- The duration (in milliseconds) that the radio will scan for a signal
          when there's no network connection. If the scan doesn't timeout, use zero -->
     <integer name="config_radioScanningTimeout">0</integer>
