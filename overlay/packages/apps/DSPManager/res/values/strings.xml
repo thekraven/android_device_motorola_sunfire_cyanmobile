@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="select_configuration_title">Audio Effects</string>
+    <string name="audio_effects">Media audio Effects</string>
+</resources>
