@@ -456,6 +456,15 @@ on property:tcmd.ctrl_adb=0
     setprop persist.factory.allow_adb  0
     stop usbd
     start usbd
+	
+# turn on bluetooth for FM tcmd
+on property:tcmd.fm_mod=1
+    stop hciattach
+    stop hciattach_rfmd
+# turn off bluetooth for FM tcmd
+on property:tcmd.fm_mod=0
+    stop hciattach
+    stop hciattach_rfmd
 
 service wlan_prod /system/bin/insmod /system/lib/dhd.ko "firmware_path=/system/etc/firmware/wifi/sdio-ag-cdc-full11n-minioctl-roml-pno-wme-aoe-pktfilter-keepalive.bin nvram_path=/system/etc/firmware/wifi/nvram.txt"
     class post-zygote_services
@@ -708,11 +717,11 @@ service gadget-qbp-modem /system/bin/tty2ttyd /dev/ttyUSB4 /dev/ttyGS2 0 1024
     disabled
 
 #FM radio
-#service fmradio /system/bin/fmradioserver
-#    class pre-zygote_services
-#    user system
-#    group bluetooth net_bt_admin net_raw net_admin misc
-#    disabled
+service fmradio /system/bin/fmradioserver
+ #   class pre-zygote_services
+    user system
+    group bluetooth net_bt_admin net_raw net_admin misc
+    disabled
 
 
 #Enable DUN and PAN support
