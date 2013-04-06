@@ -456,15 +456,44 @@ on property:tcmd.ctrl_adb=0
     setprop persist.factory.allow_adb  0
     stop usbd
     start usbd
+# turn on wifi for tcmd step one
+on property:tcmd.load_wlan=1
+    insmod /system/lib/modules/tiwlan_drv.ko
+# turn on wifi for tcmd step two
+on property:tcmd.load_wlan=2
+    start wlan_loader
+# turn on wifi for tcmd step three
+on property:tcmd.load_wlan=3
+    exec /system/bin/ifconfig tiwlan0 up
+# turn on rfmd wifi for tcmd step four
+on property:tcmd.load_wlan=4
+    start wlan_loader_rfmd
+# turn off wifi for tcmd step one
+on property:tcmd.unload_wlan=1
+    exec /system/bin/ifconfig tiwlan0 down
+# turn off wifi for tcmd step two
+on property:tcmd.unload_wlan=2
+    exec /system/bin/rmmod tiwlan_drv
+    setprop wlan.driver.status unloaded	
 	
 # turn on bluetooth for FM tcmd
 on property:tcmd.fm_mod=1
     stop hciattach
     stop hciattach_rfmd
+    start bt_init
 # turn off bluetooth for FM tcmd
 on property:tcmd.fm_mod=0
     stop hciattach
     stop hciattach_rfmd
+# turn on bluetooth for tcmd
+on property:tcmd.bt_mod=1
+    stop hciattach
+    stop hciattach_rfmd
+    insmod /system/lib/modules/wl127x_test.ko
+#turn off bluetooth for tcmd
+on property:tcmd.bt_mod=0
+    exec /system/bin/rmmod wl127x_test
+
 
 service wlan_prod /system/bin/insmod /system/lib/dhd.ko "firmware_path=/system/etc/firmware/wifi/sdio-ag-cdc-full11n-minioctl-roml-pno-wme-aoe-pktfilter-keepalive.bin nvram_path=/system/etc/firmware/wifi/nvram.txt"
     class post-zygote_services
@@ -718,7 +747,7 @@ service gadget-qbp-modem /system/bin/tty2ttyd /dev/ttyUSB4 /dev/ttyGS2 0 1024
 
 #FM radio
 service fmradio /system/bin/fmradioserver
- #   class pre-zygote_services
+    class pre-zygote_services
     user system
     group bluetooth net_bt_admin net_raw net_admin misc
     disabled

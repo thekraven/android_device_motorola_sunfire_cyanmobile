@@ -363,11 +363,15 @@
     <!-- If this is true, the screen will fade off. --> 
     <bool name="config_animateScreenLights">false</bool> 
     <!-- Enable the screen animation --> 
-    <bool name="config_enableScreenAnimation">true</bool> 
+
     <!-- Enable the screen-off animation --> 
     <bool name="config_enableScreenOffAnimation">true</bool>
+
+	<bool name="config_enableScreenOnAnimation">true</bool>
 	
-	<bool name="config_enableScreenOnAnimation">true</bool> 
+    <!-- Values greater or equal to 0 will enable electronbeam screen-on 
+         animation with the specified delay (in milliseconds), -1 will disable the animation --> 
+    <integer name="config_screenOnAnimation">0</integer> 
 
     <bool name="cm_default_is_tablet">true</bool>
     <bool name="cm_default_has_soft_buttons">true</bool>
